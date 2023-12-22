@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3x3 Slot Machine</title>
+    <style>
+        /* Add CSS styles for the slot machine here */
+        /* You can customize the appearance as needed */
+        .slot-machine {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+        .reel {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+        .reel img {
+            max-width: 100%;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slot-machine">
+        <div class="reel">
+            <img id="symbol1" src="placeholder.png" alt="Symbol 1">
+        </div>
+        <div class="reel">
+            <img id="symbol2" src="placeholder.png" alt="Symbol 2">
+        </div>
+        <div class="reel">
+            <img id="symbol3" src="placeholder.png" alt="Symbol 3">
+        </div>
+        <div class="reel">
+            <img id="symbol4" src="placeholder.png" alt="Symbol 4">
+        </div>
+        <div class="reel">
+            <img id="symbol5" src="placeholder.png" alt="Symbol 5">
+        </div>
+        <div class="reel">
+            <img id="symbol6" src="placeholder.png" alt="Symbol 6">
+        </div>
+        <div class="reel">
+            <img id="symbol7" src="placeholder.png" alt="Symbol 7">
+        </div>
+        <div class="reel">
+            <img id="symbol8" src="placeholder.png" alt="Symbol 8">
+        </div>
+        <div class="reel">
+            <img id="symbol9" src="placeholder.png" alt="Symbol 9">
+        </div>
+    </div>
+    
+    <button id="spin-button">Spin</button>
+
+    <script>
+        // Add JavaScript code for the slot machine functionality here
+        const reels = document.querySelectorAll('.reel img');
+        const spinButton = document.getElementById('spin-button');
+        const symbols = [
+            'symbol1.jpg',
+            'symbol2.jpg',
+            'symbol3.jpg',
+            'symbol4.jpg',
+            'symbol5.jpg',
+            'symbol6.jpg',
+            'symbol7.jpg',
+            'symbol8.jpg',
+            'symbol9.jpg',
+        ];
+
+        function spinReels() {
+            reels.forEach((reel) => {
+                const randomSymbolIndex = Math.floor(Math.random() * symbols.length);
+                reel.src = symbols[randomSymbolIndex];
+                reel.alt = `Symbol ${randomSymbolIndex + 1}`;
+            });
+        }
+
+        spinButton.addEventListener('click', () => {
+            spinReels();
+        });
+    </script>
+</body>
+</html>
